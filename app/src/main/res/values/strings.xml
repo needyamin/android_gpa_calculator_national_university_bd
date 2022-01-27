@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">needyaminPRO</string>
+    <string name="developer"> <a href="https://needyamin.github.io">Yamin Hossain Shohan</a></string>
+    <string name="sourcecode">  <a href="">Download Source Code</a></string>
+</resources>
