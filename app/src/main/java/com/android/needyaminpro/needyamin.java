@@ -14,9 +14,14 @@ public class needyamin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_needyamin);
 
-        //Link Movement
-        TextView text = findViewById(R.id.namedeveloper);
-        text.setMovementMethod(LinkMovementMethod.getInstance());
+
+        //Link Movement YAMIN HOSSAIN SHOHAN
+        TextView namedeveloper = findViewById(R.id.namedeveloper);
+        namedeveloper.setMovementMethod(LinkMovementMethod.getInstance());
+
+        //Link Movement SOURCE CODE
+        TextView sourcecodex = findViewById(R.id.sourcecodex);
+        sourcecodex.setMovementMethod(LinkMovementMethod.getInstance());
 
         //full screen on startup splash screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,

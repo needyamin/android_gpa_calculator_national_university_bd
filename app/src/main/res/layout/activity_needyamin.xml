@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".needyamin">
@@ -16,15 +21,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="4"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
+            android:layout_marginTop="5dp"
             android:background="@drawable/needyamin" />
 
         <TextView
@@ -40,13 +46,29 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="184dp"
+            android:layout_height="254dp"
             android:justificationMode="inter_word"
-            android:text="Thanks for using my application. This is a open source gpa calculator, specially designed for National University (Accounting Department) Students. You will find this app source code on my github account."
+            android:text="Thanks for using my application. This is an open source gpa calculator, specially designed for National University (Accounting Department) Students. You will find this app source code on my github account. If you have face any issues about this app then please send your query at needyamin@gmail.com"
             android:textSize="20sp" />
 
-   <TextView
-       android:id="@+id/sourcecode"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Privacy Policy"
+            android:textSize="25sp"></TextView>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="184dp"
+            android:justificationMode="inter_word"
+            android:text="This app made for specific country (Bangladesh Only). So privacy policy and term of use are not necessary. Just for your kind information, I don't collect user information, cookies or anything else. Thank you! "
+            android:textSize="20sp" />
+
+
+
+        <TextView
+       android:id="@+id/sourcecodex"
        android:text="@string/sourcecode"
        android:gravity="center"
        android:textColor="@color/black"
@@ -58,3 +80,5 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

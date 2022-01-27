@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.needyaminpro">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NeedyaminPRO">
-        <activity android:name=".needyamin"></activity>
+        <activity android:name=".thirdyear"></activity>
+        <activity android:name=".secondyear" />
+        <activity android:name=".firstyear" />
+        <activity android:name=".sir" />
+        <activity android:name=".universal_gpa" />
+        <activity android:name=".LandMeasurement" />
+        <activity android:name=".needyamin" />
         <activity android:name=".gpa" />
         <activity android:name=".cgpa" />
         <activity android:name=".MainActivity" />

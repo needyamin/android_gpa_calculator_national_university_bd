@@ -16,15 +16,15 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
 
-public class gpa extends Activity {
+public class LandMeasurement extends Activity {
     WebView webView;
     ProgressBar progressBar;
-    String URL = "https://4thyearbba.blogspot.com/";
+    String URL = "https://landmeasurementcalbd.blogspot.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gpa);
+        setContentView(R.layout.activity_land_measurement);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         webView = (WebView)findViewById(R.id.webView);
@@ -64,7 +64,7 @@ public class gpa extends Activity {
 
         } else {
             try {
-                new AlertDialog.Builder(gpa.this)
+                new AlertDialog.Builder(LandMeasurement.this)
                         .setTitle("Error")
                         .setMessage("Internet not available, Cross check your internet connectivity and try again later...")
                         .setCancelable(false)

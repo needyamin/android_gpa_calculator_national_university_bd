@@ -1,68 +1,116 @@
 package com.android.needyaminpro;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AlertDialog;
+import android.content.DialogInterface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-public class cgpa extends AppCompatActivity {
- private Button buttton;
- private EditText gpa1,gpa2,gpa3,gpa4;
- private TextView result;
+public class cgpa extends Activity {
+    WebView webView;
+    ProgressBar progressBar;
+    String URL = "https://cgpacalculatorbd.blogspot.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cgpa);
 
-        //collect IDS
-        buttton = findViewById(R.id.button);
-        gpa1 = findViewById(R.id.gpa1);
-        gpa2 = findViewById(R.id.gpa2);
-        gpa3 = findViewById(R.id.gpa3);
-        gpa4 = findViewById(R.id.gpa4);
-        result = findViewById(R.id.result);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        webView = (WebView)findViewById(R.id.webView);
 
-        //start button event
-        buttton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //IF Fields are empty
-                if((gpa1.getText().toString().isEmpty() && gpa2.getText().toString().isEmpty() &&
-                        gpa3.getText().toString().isEmpty() && gpa4.getText().toString().isEmpty()))
-                {
-                    Toast.makeText(cgpa.this,"Empty Field Bro",Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    //recive strings text
-                    String first_gpa = gpa1.getText().toString();
-                    String second_gpa = gpa2.getText().toString();
-                    String third_gpa = gpa3.getText().toString();
-                    String four_gpa = gpa4.getText().toString();
+        webView.getSettings().setJavaScriptEnabled(true);
 
-                    //converting int for math
-                    int gp1 = Integer.parseInt(first_gpa);
-                    int gp2 = Integer.parseInt(second_gpa);
-                    int gp3 = Integer.parseInt(third_gpa);
-                    int gp4 = Integer.parseInt(four_gpa);
+        //loading progressbar
+        webView.setWebChromeClient(new WebChromeClient() {
+            public void onProgressChanged(WebView view, int progress)
+            {
+                progressBar.setProgress(progress);
 
-                    int total = gp1 + gp2 + gp3 + gp4;
-                    int sum = total;
+                if (progress == 100) {
+                    progressBar.setVisibility(View.GONE);
 
-                    result.setText(Integer.toString(sum));
+                } else {
+                    progressBar.setVisibility(View.VISIBLE);
+
                 }
             }
         });
-       //end button event
+
+        webView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url)
+            {
+                view.loadUrl(url);
+                return true;
+            }
+        });
+
+        //check internet connection start
+        if (isOnline()) {
+            webView.loadUrl(URL);
+            Toast.makeText(getApplicationContext(), "Internet Connected", Toast.LENGTH_SHORT).show();
+
+        } else {
+            try {
+                new AlertDialog.Builder(cgpa.this)
+                        .setTitle("Error")
+                        .setMessage("Internet not available, Cross check your internet connectivity and try again later...")
+                        .setCancelable(false)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+
+                            }
+                        }).show();
+            } catch (Exception e) {
+                //Log.d(Constants.TAG, "Show Dialog: " + e.getMessage());
+            }
+        }
+        //check internet connection end
+
+    }
+
+    //enabling back button to go to previous page
+    public boolean isOnline() {
+        ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext()
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
+
+        if(netInfo == null || !netInfo.isConnected() || !netInfo.isAvailable()){
+            return false;
+        }
+        return true;
+    }
 
 
+    //enabling back button to go to previous page
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_BACK:
+                    if (webView.canGoBack()) {
+                        webView.goBack();
+                    } else {
+                        finish();
+                    }
+                    return true;
+            }
 
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

@@ -41,6 +41,66 @@ public class MainActivity extends AppCompatActivity {
         //button action gpa end
 
 
+        //button action 1st Year start
+        gpa = findViewById(R.id.gpa1);
+        gpa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,firstyear.class);
+                startActivity(intent);
+            }
+        });
+        //button action 1st Year end
+
+
+        //button action 2nd Year start
+        gpa = findViewById(R.id.gpa2);
+        gpa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,secondyear.class);
+                startActivity(intent);
+            }
+        });
+        //button action 2nd Year end
+
+        //button action 3rd Year start
+        gpa = findViewById(R.id.gpa3);
+        gpa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,thirdyear.class);
+                startActivity(intent);
+            }
+        });
+        //button action 3rd Year end
+
+
+
+        //button action universal_gpa  start
+        needyamin = findViewById(R.id.universal);
+        needyamin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,universal_gpa.class);
+                startActivity(intent);
+            }
+        });
+        //button action universal_gpa end
+
+
+        //button action Land-Measurement  start
+        needyamin = findViewById(R.id.land);
+        needyamin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,LandMeasurement.class);
+                startActivity(intent);
+            }
+        });
+        //button action Land-Measurement end
+
+
         //button action needyamin start
         needyamin = findViewById(R.id.needyamin);
         needyamin.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +111,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //button action needyamin end
+
+
+        //button action sir  start
+        needyamin = findViewById(R.id.sir);
+        needyamin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,sir.class);
+                startActivity(intent);
+            }
+        });
+        //button action sir end
+
 
 
     }

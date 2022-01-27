@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,7 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal|top"
-            android:text="Welcome Guest!" />
+            android:textSize="40sp"
+            android:text="Welcome Dude!" />
 
 
         <Button
@@ -31,12 +37,55 @@
             android:text="CGPA Calculator" />
 
         <Button
+            android:id="@+id/universal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="Universal GPA Calculator" />
+
+
+        <Button
+            android:id="@+id/gpa1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="1st Year GPA Calculator" />
+
+        <Button
+            android:id="@+id/gpa2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="2nd Year GPA Calculator" />
+
+        <Button
+            android:id="@+id/gpa3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="3rd Year GPA Calculator" />
+
+
+
+        <Button
             android:id="@+id/gpa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center_horizontal"
-            android:text="GPA Calculator" />
+            android:text="4th Year GPA Calculator" />
+
+        <Button
+            android:id="@+id/land"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="Land Measurement" />
 
 
         <Button
@@ -45,18 +94,29 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center_horizontal"
-            android:text="About Developer" />
+            android:text="About The Developer" />
 
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="383dp"
-        android:layout_height="34dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="696dp">
+        <Button
+            android:id="@+id/sir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="Accounting Coaching Center" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="2016-2017 Students batch"
+            android:textSize="15sp"></TextView>
 
     </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
